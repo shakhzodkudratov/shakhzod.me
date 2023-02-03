@@ -80,13 +80,13 @@ html.dark {
 
 .prose {
     --tw-prose-body: var(--fg1);
-    --tw-prose-headings: var(--fg1);
+    --tw-prose-headings: var(--fg);
     --tw-prose-lead: var(--fg1);
-    --tw-prose-links: var(--fg1);
+    --tw-prose-links: var(--green);
     --tw-prose-bold: var(--fg1);
     --tw-prose-counters: var(--fg1);
     --tw-prose-bullets: var(--fg1);
-    --tw-prose-hr: var(--fg1);
+    --tw-prose-hr: var(--orange);
     --tw-prose-quotes: var(--fg1);
     --tw-prose-quote-borders: var(--fg1);
     --tw-prose-captions: var(--fg1);
