@@ -9,6 +9,7 @@ import rehypeAttr from 'rehype-attr';
 import Head from 'next/head';
 import Link from 'next/link';
 import CommentsComponent from '@/components/comments';
+import CurrentlyListeningComponent from '@/components/currently-listening';
 
 const rootDir = path.join(process.cwd(), 'content');
 const allPagesWithPath = async () =>
@@ -25,6 +26,7 @@ const allPagesWithPath = async () =>
 const components = {
   Link,
   Comments: CommentsComponent,
+  CurrentlyListening: CurrentlyListeningComponent,
 };
 
 export default function Page({
