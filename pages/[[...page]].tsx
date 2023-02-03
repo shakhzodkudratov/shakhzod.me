@@ -1,3 +1,4 @@
+import React from 'react';
 import { MDXRemote } from 'next-mdx-remote';
 import { serialize } from 'next-mdx-remote/serialize';
 import { MDXRemoteSerializeResult } from 'next-mdx-remote/dist/types';
@@ -7,6 +8,7 @@ import * as fs from 'fs';
 import rehypeAttr from 'rehype-attr';
 import Head from 'next/head';
 import Link from 'next/link';
+import CommentsComponent from '@/components/comments';
 
 const rootDir = path.join(process.cwd(), 'content');
 const allPagesWithPath = async () =>
@@ -22,6 +24,7 @@ const allPagesWithPath = async () =>
 
 const components = {
   Link,
+  Comments: CommentsComponent,
 };
 
 export default function Page({
@@ -41,9 +44,11 @@ export default function Page({
         />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
-      <article className="prose p-5">
-        <MDXRemote {...mdxSource} components={components} />
-      </article>
+      <React.StrictMode>
+        <article className="prose p-5">
+          <MDXRemote {...mdxSource} components={components} />
+        </article>
+      </React.StrictMode>
     </>
   );
 }
