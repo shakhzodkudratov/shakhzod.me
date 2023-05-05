@@ -1,0 +1,73 @@
+<html>
+	<head>
+		<title>calendar</title>
+		<style>
+			body{
+				font-family: "Courier New", Courier, monospace;
+				background: #000;
+				color: fff;
+				padding-top: 100px;
+				text-align: center;
+				overflow: hidden;
+			}
+			table{
+				margin: 0 auto;
+			}
+			td{
+				padding: 10px;
+				font-size: 20px;
+				text-align: center;
+			}
+			a{
+				text-decoration: none;
+				color: #fff;
+			}
+			td#today{
+				color: #000;
+				background: #fff;
+			}
+			td.other{
+				color: grey;
+			}
+			*{
+				cursor: none;
+			}
+			*::selection{
+				background: #fff;
+				color:#000;
+			}
+			#cursor{
+				position: absolute;
+				width: 10px;
+				height: 24px;
+				background: #fff;
+				z-index:-1;
+			}
+			h1{
+				font-weight: normal;
+			}
+		</style>
+		
+	</head>
+	<body onmousemove="cursor()">
+		<div id="cursor"></div>
+		<h1>system.calendar();</h1>
+		<table id="main">
+			<tr>
+				<td colspan="5"><span id="month"></span></td>
+				<td><a href="#" onclick="prev()" id="prev">˄</a></td>
+				<td><a href="#" onclick="next()" id="next">˅</a></td>
+			</tr>
+			<tr>
+				<td>Mon</td>
+				<td>Tue</td>
+				<td>Wed</td>
+				<td>Thu</td>
+				<td>Fri</td>
+				<td>Sat</td>
+				<td>Sun</td>
+			</tr>
+		</table>
+		<script src="myjs.js"></script>
+	</body>
+</html>
