@@ -10,6 +10,15 @@ import Head from 'next/head';
 import Link from 'next/link';
 import CommentsComponent from '@/components/comments';
 import CurrentlyListeningComponent from '@/components/currently-listening';
+import StreamScheduleComponent from '@/components/stream-schedule';
+import HeaderComponent from '@/components/header';
+
+const components = {
+  Link,
+  Comments: CommentsComponent,
+  CurrentlyListening: CurrentlyListeningComponent,
+  StreamSchedule: StreamScheduleComponent,
+};
 
 const rootDir = path.join(process.cwd(), 'content');
 const allPagesWithPath = async () =>
@@ -22,12 +31,6 @@ const allPagesWithPath = async () =>
       }
     });
   });
-
-const components = {
-  Link,
-  Comments: CommentsComponent,
-  CurrentlyListening: CurrentlyListeningComponent,
-};
 
 export default function Page({
   mdxSource,
@@ -48,6 +51,7 @@ export default function Page({
       </Head>
       <React.StrictMode>
         <article className="prose p-5">
+          <HeaderComponent />
           <MDXRemote {...mdxSource} components={components} />
         </article>
       </React.StrictMode>
