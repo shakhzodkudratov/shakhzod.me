@@ -1,6 +1,5 @@
 import CommentsComponent from "@/components/comments";
 import CurrentlyListeningComponent from "@/components/currently-listening";
-import HeaderComponent from "@/components/header";
 import StreamScheduleComponent from "@/components/stream-schedule";
 import dynamic from "next/dynamic";
 import Head from "next/head";
@@ -37,7 +36,7 @@ export default function Layout({ children, pageOpts }: NextraThemeLayoutProps) {
   );
 }
 
-function Wrapper({ children, toc }) {
+const Wrapper: React.FC<{ children?: React.ReactNode }> = ({ children }) => {
   return (
     <main className="prose">
       <div className="flex flex-col px-5">
@@ -53,4 +52,4 @@ function Wrapper({ children, toc }) {
       <article className="p-5">{children}</article>
     </main>
   );
-}
+};
