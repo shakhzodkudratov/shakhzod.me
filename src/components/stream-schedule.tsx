@@ -1,6 +1,6 @@
-import path from 'path';
+// import path from "node:path";
 
-const rootDir = path.join(process.cwd(), 'content');
+// const rootDir = path.join(process.cwd(), "content");
 
 // const raw = fs.readFileSync(rootDir + "stream-schedule.yaml")
 
