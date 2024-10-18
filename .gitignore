@@ -1,4 +1,5 @@
 /content/.obsidian/*
+/content/.trash/*
 !/content/.obsidian/app.json
 !/content/.obsidian/core-plugins.json
 /result

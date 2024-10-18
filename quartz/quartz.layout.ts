@@ -5,7 +5,17 @@ import * as Component from "./quartz/components"
 export const sharedPageComponents: SharedLayout = {
   head: Component.Head(),
   header: [],
-  afterBody: [],
+  afterBody: [
+    Component.Comments({
+      provider: "giscus",
+      options: {
+        repo: "shakhzodkudratov/shakhzod.me",
+        repoId: "R_kgDOI5Bvew",
+        category: "General",
+        categoryId: "DIC_kwDOI5Bve84CT91m"
+      }
+    })
+  ],
   footer: Component.Footer({
     links: {
       github: "https://github.com/shakhzodkudratov/shakhzod.me",
