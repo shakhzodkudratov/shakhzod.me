@@ -1,0 +1,29 @@
+- Wiki
+- Forum Discussions
+- Torrent Tracker (kinda)
+- User skills
+- GitHub Integration
+- Keyboard games ([zty.pe](http://zty.pe), [klava.org](http://klava.org) klavogonki, ...)
+- Badge Generator
+- Markdown + Notion
+- [https://www.videosharp.info/](https://www.videosharp.info/)
+- [screeps.com](http://screeps.com)?
+- [makeuseof.com/tag/best-programming-games/](http://makeuseof.com/tag/best-programming-games/)
+- Two way communication + contributions from community
+- Profile computers (Programmer simulator game like)
+- [https://app.rs.school/](https://app.rs.school/)
+- in site discord? chats? messaging?
+- collaboration w/ [robocontest.uz](http://robocontest.uz)?
+- collaboration w/ GDG Tashkent?
+- habr like?
+- [](https://htmlacademy.ru/courses/297/run/2)[https://htmlacademy.ru/](https://htmlacademy.ru/)
+- [https://www.freecodecamp.org/](https://www.freecodecamp.org/)
+- [https://www.codecademy.com/](https://www.codecademy.com/)
+- [https://www.theodinproject.com/paths](https://www.theodinproject.com/paths)
+- [https://www.w3schools.com/](https://www.w3schools.com/)
+- [https://exercism.org/](https://exercism.org/)
+- [code.org/](http://code.org/)
+- [https://www.codewars.com/](https://www.codewars.com/)
+- [https://www.smashingmagazine.com/](https://www.smashingmagazine.com/) ← tuts translations?
+- [https://alistapart.com/](https://alistapart.com/) ← tuts translations?
+- [https://foxford.ru/](https://foxford.ru/)
