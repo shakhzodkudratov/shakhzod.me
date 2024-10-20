@@ -1,7 +1,5 @@
 ---
 title: home
-created: 2024-10-11T04:00:00Z
-modified: 2024-10-11T04:00:00Z
 ---
 
 # hello $guest. welcome to my website.

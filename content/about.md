@@ -1,7 +1,5 @@
 ---
 title: about me
-created: 2024-10-11T04:00:00Z
-modified: 2024-10-11T04:00:00Z
 ---
 ## about me
 
