@@ -16,25 +16,21 @@ check out some sections out there:
 
 - [music i listen to](/music)
 
-- [gear i use](/gear)
-
-- projects i wrote (page is not ready yet)
-
 - [shakhzod's lab on telegram](https://t.me/shakhzodme)
-
-- [stream schedule](/stream-schedule)
 
   
 
 ofc links too:
 
-  
-
-- [youtube](https://youtube.com/@shakhzodme)
+- [cv](https://raw.githubusercontent.com/shakhzodkudratov/cv/refs/heads/main/cv.pdf)
 
 - [github](https://github.com/shakhzodkudratov)
 
 - [linkedin](https://linkedin.com/in/shakhzodkudratov)
+
+- [xing](https://www.xing.com/profile/Shakhzod_Kudratov066427)
+
+- [youtube](https://youtube.com/@shakhzodme)
 
 - [spotify](https://open.spotify.com/user/shahzodkk)
 

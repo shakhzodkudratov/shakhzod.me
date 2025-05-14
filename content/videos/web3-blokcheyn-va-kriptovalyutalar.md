@@ -1,4 +1,6 @@
-Boshlash
+# web3, blokcheyn va kriptovalyutalar bu aslida nima? (dasturchi tomonidan foydalanuvchi qo’llanmasi)
+
+## Boshlash
 
 Diskleymer (huquqiy ekspert emasman, shunday loyihalarni ishlab chiqaruvchi dasturchi nigohidan gapiraman)
 

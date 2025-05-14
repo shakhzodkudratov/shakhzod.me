@@ -4,5 +4,7 @@
   "livePreview": false,
   "alwaysUpdateLinks": true,
   "newLinkFormat": "relative",
-  "showRibbon": false
+  "vimMode": true,
+  "newFileLocation": "current",
+  "attachmentFolderPath": "./attachments"
 }
