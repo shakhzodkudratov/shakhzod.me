@@ -1,45 +1,18 @@
 {
   inputs = {
     utils.url = "github:numtide/flake-utils/v1.0.0";
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs.url = "https://flakehub.com/f/NixOS/nixpkgs/0";
   };
 
-  outputs = { self, nixpkgs, utils }:
+  outputs = {
+    self,
+    nixpkgs,
+    utils,
+  }:
     utils.lib.eachDefaultSystem (
-      system:
-      let
+      system: let
         pkgs = nixpkgs.legacyPackages.${system};
-      in
-      {
-        apps.default = {
-          type = "app";
-
-          program =
-            let
-              caddyfile = pkgs.writeText "Caddyfile" ''
-                :8080 {
-                    root * ${self.packages."${system}".default}/public/
-                    file_server
-                    try_files {path} {path}.html {path}/ =404
-                }
-              '';
-
-              formattedCaddyfile = pkgs.runCommand "Caddyfile"
-                { nativeBuildInputs = [ pkgs.caddy ]; }
-                ''(caddy fmt ${caddyfile} || :) > "$out"'';
-
-              script =
-                pkgs.writeShellApplication {
-                  name = "logbook";
-                  runtimeInputs = [ pkgs.caddy ];
-                  text =
-                    "caddy run --config ${formattedCaddyfile} --adapter caddyfile";
-                };
-
-            in
-            "${pkgs.lib.getExe script}";
-        };
-
+      in {
         devShells.default = pkgs.mkShell {
           packages = with pkgs; [
             nodejs_22
@@ -49,18 +22,21 @@
         packages = {
           default = pkgs.buildNpmPackage rec {
             pname = "quartz";
-            version = "4.4.0";
+            version = "4.5.2";
 
-            src = pkgs.fetchFromGitHub {
-              owner = "jackyzha0";
-              repo = "quartz";
-              rev = "v${version}";
-              hash = "sha256-ImL9QycKNWnI7hFej6HeJra2flsdnrC+hoRrfW9kw2Q=";
+            src = pkgs.applyPatches {
+              src = pkgs.fetchFromGitHub {
+                owner = "jackyzha0";
+                repo = "quartz";
+                rev = "v${version}";
+                hash = "sha256-A6ePeNmcsbtKVnm7hVFOyjyc7gRYvXuG0XXQ6fvTLEw=";
+              };
+              patches = [./patches/config.patch];
             };
 
             dontNpmBuild = true;
             makeCacheWritable = true;
-            npmDepsHash = "sha256-TAbNdOoYxLEzPxIOvECqu6IROW3PUW612K0cUm6/4aM=";
+            npmDepsHash = "sha256-xxK9qy04m1olekOJIyYJHfdkYFzpjsgcfyFPuKsHpKE=";
 
             installPhase = ''
               runHook preInstall
@@ -73,11 +49,9 @@
               mkdir content
               cp -r ${./content}/* ./content
 
-              # Override quartz source files
-              mv ./quartz/components/index.ts ./quartz/components/index-original.ts
-              mv ./quartz/plugins/emitters/index.ts ./quartz/plugins/emitters/index-original.ts
-              mv ./quartz/plugins/transformers/index.ts ./quartz/plugins/transformers/index-original.ts
-              cp -r ${./quartz}/* ./
+              rm -r ./quartz/static
+              mkdir ./quartz/static
+              cp -r ${./static}/* ./quartz/static
 
               $out/bin/quartz build
               mv public/ $out/public/
