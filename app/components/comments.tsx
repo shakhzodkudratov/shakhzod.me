@@ -7,7 +7,6 @@ import { usePathname } from "next/navigation";
 const Comments: React.FC = () => {
   const theme = useTheme();
   const currentTheme = theme.theme ?? theme.systemTheme ?? "dark";
-  const giscusTheme = `https://shakhzod.me/giscus/${currentTheme}.css`;
   const path = usePathname();
 
   return (
@@ -22,7 +21,7 @@ const Comments: React.FC = () => {
       reactionsEnabled="1"
       emitMetadata="0"
       inputPosition="top"
-      theme={giscusTheme}
+      theme={`gruvbox_${currentTheme}`}
       lang="en"
       loading="lazy"
     />
