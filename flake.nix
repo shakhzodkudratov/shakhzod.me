@@ -57,8 +57,8 @@
               pkgs.git
             ];
             installPhase = ''
-              mkdir -p $out
-              cp -rf out/* $out
+              mkdir -p $out/public
+              cp -rf out/* $out/public
             '';
           };
         }
