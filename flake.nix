@@ -51,7 +51,7 @@
                 in
                 baseName == ".git" || (pkgs.lib.cleanSourceFilter path type);
             };
-            npmDepsHash = "sha256-ZMEWyZFT0CByX4zvXeISK560cSr06DwKe+qaMW2IGio=";
+            npmDepsHash = "sha256-PYBK+ChqDylHMw4gz17CaYyKI/cMXnY0GcP51Vwrk7s=";
             # required for lastModified plugin to work
             nativeBuildInputs = [
               pkgs.git
