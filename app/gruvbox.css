@@ -1,0 +1,146 @@
+@import "@fumadocs/ui/css/colors/index.css";
+
+/* Gruvbox color variables - Light mode (hard) */
+html {
+  --bg_h: #f9f5d7;
+  --bg0: #fbf1c7;
+  --bg1: #ebdbb2;
+  --bg2: #d5c4a1;
+  --bg3: #bdae93;
+  --bg4: #a89984;
+
+  --fg0: #282828;
+  --fg1: #3c3836;
+  --fg2: #504945;
+  --fg3: #665c54;
+  --fg4: #7c6f64;
+
+  --red: #cc241d;
+  --green: #98971a;
+  --yellow: #d79921;
+  --blue: #458588;
+  --purple: #b16286;
+  --aqua: #689d6a;
+  --orange: #d65d0e;
+  --gray: #928374;
+}
+
+/* Gruvbox color variables - Dark mode (hard) */
+html.dark {
+  --bg_h: #1d2021;
+  --bg0: #282828;
+  --bg1: #3c3836;
+  --bg2: #504945;
+  --bg3: #665c54;
+  --bg4: #7c6f64;
+
+  --fg0: #fbf1c7;
+  --fg1: #ebdbb2;
+  --fg2: #d5c4a1;
+  --fg3: #bdae93;
+  --fg4: #a89984;
+
+  --red: #fb4934;
+  --green: #b8bb26;
+  --yellow: #fabd2f;
+  --blue: #83a598;
+  --purple: #d3869b;
+  --aqua: #8ec07c;
+  --orange: #fe8019;
+  --gray: #928374;
+}
+
+/* Fumadocs theme - reusing gruvbox variables */
+@theme {
+  --color-fd-background: var(--bg_h);
+  --color-fd-card: var(--bg1);
+  --color-fd-popover: var(--bg0);
+  --color-fd-muted: var(--bg2);
+  --color-fd-secondary: var(--bg2);
+  --color-fd-accent: var(--bg3);
+
+  --color-fd-foreground: var(--fg0);
+  --color-fd-card-foreground: var(--fg1);
+  --color-fd-popover-foreground: var(--fg0);
+  --color-fd-muted-foreground: var(--fg3);
+  --color-fd-secondary-foreground: var(--fg1);
+  --color-fd-accent-foreground: var(--fg0);
+
+  --color-fd-primary: var(--blue);
+  --color-fd-primary-foreground: var(--bg_h);
+
+  --color-fd-border: var(--bg3);
+  --color-fd-ring: var(--blue);
+}
+
+html,
+html.dark {
+  --color-fd-background: var(--bg_h);
+  --color-fd-card: var(--bg1);
+  --color-fd-popover: var(--bg0);
+  --color-fd-muted: var(--bg2);
+  --color-fd-secondary: var(--bg2);
+  --color-fd-accent: var(--bg3);
+
+  --color-fd-foreground: var(--fg0);
+  --color-fd-card-foreground: var(--fg1);
+  --color-fd-popover-foreground: var(--fg0);
+  --color-fd-muted-foreground: var(--fg3);
+  --color-fd-secondary-foreground: var(--fg1);
+  --color-fd-accent-foreground: var(--fg0);
+
+  --color-fd-primary: var(--blue);
+  --color-fd-primary-foreground: var(--bg_h);
+
+  --color-fd-border: var(--bg3);
+  --color-fd-ring: var(--blue);
+}
+
+@theme static {
+  --color-fd-info: var(--blue);
+  --color-fd-warning: var(--yellow);
+  --color-fd-error: var(--red);
+  --color-fd-success: var(--green);
+  --color-fd-idea: var(--purple);
+  --color-fd-diff-remove: color-mix(in srgb, var(--red) 15%, transparent);
+  --color-fd-diff-remove-symbol: var(--red);
+  --color-fd-diff-add: color-mix(in srgb, var(--green) 15%, transparent);
+  --color-fd-diff-add-symbol: var(--green);
+}
+
+/* Tailwind Prose theming */
+.prose {
+  --tw-prose-body: var(--fg1);
+  --tw-prose-headings: var(--fg0);
+  --tw-prose-lead: var(--fg2);
+  --tw-prose-links: var(--blue);
+  --tw-prose-bold: var(--fg0);
+  --tw-prose-counters: var(--fg3);
+  --tw-prose-bullets: var(--fg3);
+  --tw-prose-hr: var(--bg3);
+  --tw-prose-quotes: var(--fg1);
+  --tw-prose-quote-borders: var(--bg3);
+  --tw-prose-captions: var(--fg3);
+  --tw-prose-code: var(--fg0);
+  --tw-prose-pre-code: var(--fg1);
+  --tw-prose-pre-bg: var(--bg1);
+  --tw-prose-th-borders: var(--bg3);
+  --tw-prose-td-borders: var(--bg2);
+}
+
+/* Sidebar customization */
+#nd-sidebar {
+  background-color: var(--bg_h);
+}
+
+html.dark #nd-sidebar {
+  background-color: var(--bg1);
+}
+
+html {
+  --color-fd-primary: var(--orange);
+}
+
+html.dark {
+  --color-fd-primary: var(--blue);
+}

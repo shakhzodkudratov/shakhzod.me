@@ -1,0 +1,10 @@
+@import "tailwindcss";
+@import "fumadocs-ui/css/preset.css";
+@import "./gruvbox.css";
+
+html {
+  font-family:
+    var(--font-jetbrains-mono), ui-monospace, Menlo, Monaco, "Cascadia Mono",
+    "Segoe UI Mono", "Roboto Mono", "Oxygen Mono", "Ubuntu Monospace",
+    "Source Code Pro", "Fira Mono", "Droid Sans Mono", "Courier New", monospace;
+}

@@ -1,3 +1,7 @@
+---
+title: Introduction
+---
+
 what if we combine duolingo, brilliant, khan academy, anki and many more?
 
 - duolingo

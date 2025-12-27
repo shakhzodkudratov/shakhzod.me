@@ -1,0 +1,13 @@
+{
+  "title": "projects",
+  "pages": [
+    "index",
+    "kashf-et",
+    "xinux",
+    "privacy",
+    "selfhost",
+    "havaskor",
+    "matnuz"
+  ],
+  "defaultOpen": false
+}

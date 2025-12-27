@@ -1,0 +1,13 @@
+{
+  "title": "software engineer's swiss knife",
+  "pages": [
+    "introduction",
+    "the-art-of-googling",
+    "look-at-the-example",
+    "dive-into-the-source-code",
+    "debugging-with-print-and-debugger",
+    "github-analysis",
+    "undo-till-you-well-done"
+  ],
+  "defaultOpen": false
+}

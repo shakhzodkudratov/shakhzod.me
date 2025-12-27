@@ -1,65 +1,69 @@
 {
-  inputs = {
-    utils.url = "github:numtide/flake-utils/v1.0.0";
-    nixpkgs.url = "https://flakehub.com/f/NixOS/nixpkgs/0";
-  };
+  inputs.nixpkgs.url = "https://flakehub.com/f/NixOS/nixpkgs/0";
 
-  outputs = {
-    self,
-    nixpkgs,
-    utils,
-  }:
-    utils.lib.eachDefaultSystem (
-      system: let
-        pkgs = nixpkgs.legacyPackages.${system};
-      in {
-        devShells.default = pkgs.mkShell {
-          packages = with pkgs; [
-            nodejs_22
-          ];
-        };
+  outputs =
+    { self, ... }@inputs:
+    let
+      supportedSystems = [
+        "x86_64-linux" # 64-bit Intel/AMD Linux
+        "aarch64-linux" # 64-bit ARM Linux
+        "aarch64-darwin" # 64-bit ARM macOS
+      ];
 
-        packages = {
-          default = pkgs.buildNpmPackage rec {
-            pname = "quartz";
-            version = "4.5.2";
-
-            src = pkgs.applyPatches {
-              src = pkgs.fetchFromGitHub {
-                owner = "jackyzha0";
-                repo = "quartz";
-                rev = "v${version}";
-                hash = "sha256-A6ePeNmcsbtKVnm7hVFOyjyc7gRYvXuG0XXQ6fvTLEw=";
-              };
-              patches = [./patches/config.patch];
+      forEachSupportedSystem =
+        f:
+        inputs.nixpkgs.lib.genAttrs supportedSystems (
+          system:
+          f {
+            inherit system;
+            pkgs = import inputs.nixpkgs {
+              inherit system;
+              config.allowUnfree = true;
             };
+          }
+        );
+    in
+    {
+      devShells = forEachSupportedSystem (
+        { pkgs, system }:
+        {
+          default = pkgs.mkShellNoCC {
+            packages = with pkgs; [
+              self.formatter.${system}
+              nodejs
+            ];
+          };
+        }
+      );
 
-            dontNpmBuild = true;
-            makeCacheWritable = true;
-            npmDepsHash = "sha256-xxK9qy04m1olekOJIyYJHfdkYFzpjsgcfyFPuKsHpKE=";
-
+      packages = forEachSupportedSystem (
+        { pkgs, ... }:
+        {
+          default = pkgs.buildNpmPackage {
+            name = "shakhzod-me-website";
+            # required for lastModified plugin to work
+            src = pkgs.lib.cleanSourceWith {
+              src = ./.;
+              filter =
+                path: type:
+                let
+                  baseName = baseNameOf (toString path);
+                in
+                baseName == ".git" || (pkgs.lib.cleanSourceFilter path type);
+            };
+            npmDepsHash = "sha256-ZMEWyZFT0CByX4zvXeISK560cSr06DwKe+qaMW2IGio=";
+            # required for lastModified plugin to work
+            nativeBuildInputs = [
+              pkgs.git
+            ];
             installPhase = ''
-              runHook preInstall
-              npmInstallHook
-
-              cd $out/lib/node_modules/@jackyzha0/quartz
-
-              # Copy our website content
-              rm -r ./content
-              mkdir content
-              cp -r ${./content}/* ./content
-
-              rm -r ./quartz/static
-              mkdir ./quartz/static
-              cp -r ${./static}/* ./quartz/static
-
-              $out/bin/quartz build
-              mv public/ $out/public/
-
-              runHook postInstall
+              mkdir -p $out
+              cp -rf out/* $out
             '';
           };
-        };
-      }
-    );
+        }
+      );
+
+      formatter = forEachSupportedSystem ({ pkgs, ... }: pkgs.nixfmt-rfc-style);
+    };
 }
